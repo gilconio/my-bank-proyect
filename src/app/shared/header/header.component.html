@@ -1,0 +1,28 @@
+<nav id="header" class="navbar navbar-expand-lg navbar-light bg-light w-100">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="../assets/Logo_Ripley.svg" alt="icono" height="80px" width="80px">
+            Banco de Ripley
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <!-- ml-auto calcula el margen izquierdo y lo tira a la derecha -->
+                <li class="nav-item ">
+                    <a class="nav-link" [routerLink]="[ '/' ]">Nuevo Destinatario <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="[ '/transferir' ]">Transferir</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="[ '/historial' ]">Historial</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
