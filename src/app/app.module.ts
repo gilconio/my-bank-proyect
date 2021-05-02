@@ -10,6 +10,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SearchPipe } from './pipes/search.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MakeTransferComponent,
     TransferHistoryComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

@@ -23,4 +23,14 @@ export class BankTypesService extends BaseService {
       { cuenta: 'Ahorro' }
     ])
   }
+
+  public getUsers(){
+    return of([
+      { usuario: 'pedro' },
+      { usuario: 'juan' },
+      { usuario: 'matias' },
+      { usuario: 'luis' },
+      { usuario: 'jose' },
+    ])
+  }
 }

@@ -23,7 +23,7 @@ export class NewTransferComponent extends UnsubscribeOnDestroy implements OnInit
     this.getAccountType();
   }
 
-  createForm() {
+  public createForm() {
     this.form = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(5)]],
       email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$')]],
@@ -62,7 +62,7 @@ export class NewTransferComponent extends UnsubscribeOnDestroy implements OnInit
     return this.form.get('accountType').invalid && this.form.get('accountType').touched
   }
 
-  save() {
+  public save() {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
     } else {

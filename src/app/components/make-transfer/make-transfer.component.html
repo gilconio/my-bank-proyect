@@ -2,13 +2,12 @@
     <h2 class="text-center">Transferir</h2>
     <label class="form-label mt-4">Buscar Destinatario</label>
     <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-        <button class="btn btn-primary  my-2 my-sm-0" type="submit">Buscar</button>
+        <input spellcheck="false" autocomplete="none" class="form-control mr-sm-2" (input)="handleSearch($event)" placeholder="Buscar">
+        <button class="btn btn-primary  my-2 my-sm-0" type="button">Buscar</button>
     </form>
     <label class="form-label mt-4">Detalle del destinatario</label>
-    <ul class="list-group col-md-6">
-        <li class="list-group-item text-center">Luis Carmona</li>
-        <li class="list-group-item text-center">Mérida Carmona</li>
+    <ul class="list-group col-md-4">
+        <li *ngFor="let user of users | search:filterUser" class="list-group-item text-center">{{user.usuario}}</li>
     </ul>
 
     <label for="inputEmail4" class="form-label">Monto</label>
