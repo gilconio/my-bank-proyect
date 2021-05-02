@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BankTypesService } from 'src/app/services/bank-types.service';
 
 @Component({
   selector: 'app-new-transfer',
@@ -8,12 +9,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class NewTransferComponent implements OnInit {
   form: FormGroup;
+  banks: any;
+  accountTypes: any;
+  hola:any;
 
-  constructor(private fb: FormBuilder) {
-    this.createForm();
-  }
+  constructor(private fb: FormBuilder, private bankTypesService: BankTypesService) {}
 
   ngOnInit(): void {
+    this.getBankTypes();
+    this.createForm();
+    this.getAccountType();
   }
 
   createForm() {
@@ -56,15 +61,27 @@ export class NewTransferComponent implements OnInit {
   }
 
   save() {
-    if (this.form.invalid) {
-      console.log(this.form);
-      
+    if (this.form.invalid) {      
       this.form.markAllAsTouched();
     } else {
       this.form.reset();
 
     }
 
+  }
+
+  getBankTypes() {
+    this.bankTypesService.getBankTypes().subscribe(data => {
+      console.log(data.banks);
+      this.banks = data.banks;
+      
+    })
+  }
+
+  getAccountType() {
+    this.bankTypesService.getAccountType().subscribe(data => {
+      this.accountTypes = data;    
+    })
   }
 
 }
