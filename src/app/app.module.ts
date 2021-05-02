@@ -3,10 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NewTransferComponent } from './components/new-transfer/new-transfer.component';
+import { MakeTransferComponent } from './components/make-transfer/make-transfer.component';
+import { TransferHistoryComponent } from './components/transfer-history/transfer-history.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NewTransferComponent,
+    MakeTransferComponent,
+    TransferHistoryComponent
   ],
   imports: [
     BrowserModule,
