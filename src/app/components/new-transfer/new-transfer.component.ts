@@ -1,19 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BankTypesService } from 'src/app/services/bank-types.service';
+import { UnsubscribeOnDestroy } from 'src/app/utils/unsubscribe-on-destroy';
 import Swal from 'sweetalert2';
 @Component({
   selector: 'app-new-transfer',
   templateUrl: './new-transfer.component.html',
   styleUrls: ['./new-transfer.component.css']
 })
-export class NewTransferComponent implements OnInit {
-  form: FormGroup;
-  banks: any;
-  accountTypes: any;
-  hola: any;
+export class NewTransferComponent extends UnsubscribeOnDestroy implements OnInit {
+  public form: FormGroup;
+  public banks: any;
+  public accountTypes: any;
 
-  constructor(private fb: FormBuilder, private bankTypesService: BankTypesService) { }
+  constructor(private fb: FormBuilder, private bankTypesService: BankTypesService) { 
+    super();
+  }
 
   ngOnInit(): void {
     this.getBankTypes();
@@ -75,14 +77,14 @@ export class NewTransferComponent implements OnInit {
 
   }
 
-  getBankTypes() {
+  private getBankTypes() {
     this.bankTypesService.getBankTypes().subscribe(data => {
       this.banks = data.banks;
 
     })
   }
 
-  getAccountType() {
+  private getAccountType() {
     this.bankTypesService.getAccountType().subscribe(data => {
       this.accountTypes = data;
     })
