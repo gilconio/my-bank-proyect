@@ -24,7 +24,7 @@ export class BankTypesService extends BaseService {
     ])
   }
 
-  public getUsers(){
+  public getUsers() {
     return of([
       { usuario: 'pedro' },
       { usuario: 'juan' },

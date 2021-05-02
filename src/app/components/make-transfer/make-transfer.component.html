@@ -2,7 +2,8 @@
     <h2 class="text-center">Transferir</h2>
     <label class="form-label mt-4">Buscar Destinatario</label>
     <form class="form-inline">
-        <input spellcheck="false" autocomplete="none" class="form-control mr-sm-2" (input)="handleSearch($event)" placeholder="Buscar">
+        <input spellcheck="false" autocomplete="none" class="form-control mr-sm-2" (input)="handleSearch($event)"
+            placeholder="Buscar">
         <button class="btn btn-primary  my-2 my-sm-0" type="button">Buscar</button>
     </form>
     <label class="form-label mt-4">Detalle del destinatario</label>
@@ -10,11 +11,17 @@
         <li *ngFor="let user of users | search:filterUser" class="list-group-item text-center">{{user.usuario}}</li>
     </ul>
 
-    <label for="inputEmail4" class="form-label">Monto</label>
-    <input type="number" class="form-control col-md-3">
+    <form [formGroup]="amountTransfer" (ngSubmit)="sendTransfer()">
+        <label class="form-label">Monto</label>
+        <input type="number" class="form-control col-md-3" formControlName="amount" [class.is-invalid]="invalidAmount">
+        <small *ngIf="invalidAmount" class="text-danger">
+            El campo es requerido
+        </small>
+        <div class="col-md-12"></div>
+        <button type="submit" class="btn btn-primary mt-3 mb-5">Transferir</button>
 
+    </form>
 
-    <button type="submit" class="btn btn-primary mt-3 mb-5">Transferir</button>
 
 
 </div>
