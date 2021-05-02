@@ -7,6 +7,9 @@ import { NewTransferComponent } from './components/new-transfer/new-transfer.com
 import { MakeTransferComponent } from './components/make-transfer/make-transfer.component';
 import { TransferHistoryComponent } from './components/transfer-history/transfer-history.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,11 +17,15 @@ import { HeaderComponent } from './shared/header/header.component';
     NewTransferComponent,
     MakeTransferComponent,
     TransferHistoryComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
