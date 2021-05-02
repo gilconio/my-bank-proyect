@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BankTypesService } from 'src/app/services/bank-types.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-new-transfer',
   templateUrl: './new-transfer.component.html',
@@ -11,9 +11,9 @@ export class NewTransferComponent implements OnInit {
   form: FormGroup;
   banks: any;
   accountTypes: any;
-  hola:any;
+  hola: any;
 
-  constructor(private fb: FormBuilder, private bankTypesService: BankTypesService) {}
+  constructor(private fb: FormBuilder, private bankTypesService: BankTypesService) { }
 
   ngOnInit(): void {
     this.getBankTypes();
@@ -61,9 +61,14 @@ export class NewTransferComponent implements OnInit {
   }
 
   save() {
-    if (this.form.invalid) {      
+    if (this.form.invalid) {
       this.form.markAllAsTouched();
     } else {
+      Swal.fire(
+        'Destinatario guardado con éxito',
+        '',
+        'success'
+      )
       this.form.reset();
 
     }
@@ -72,15 +77,14 @@ export class NewTransferComponent implements OnInit {
 
   getBankTypes() {
     this.bankTypesService.getBankTypes().subscribe(data => {
-      console.log(data.banks);
       this.banks = data.banks;
-      
+
     })
   }
 
   getAccountType() {
     this.bankTypesService.getAccountType().subscribe(data => {
-      this.accountTypes = data;    
+      this.accountTypes = data;
     })
   }
 
