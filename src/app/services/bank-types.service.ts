@@ -26,11 +26,11 @@ export class BankTypesService extends BaseService {
 
   public getUsers() {
     return of([
-      { usuario: 'pedro' },
-      { usuario: 'juan' },
-      { usuario: 'matias' },
-      { usuario: 'luis' },
-      { usuario: 'jose' },
+      { usuario: 'pedro', id: 1 },
+      { usuario: 'juan', id: 2 },
+      { usuario: 'matias', id: 3 },
+      { usuario: 'luis', id: 4 },
+      { usuario: 'jose', id: 5 },
     ])
   }
 }

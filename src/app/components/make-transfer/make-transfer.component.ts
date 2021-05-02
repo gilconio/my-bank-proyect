@@ -12,6 +12,7 @@ export class MakeTransferComponent implements OnInit {
   public users: any;
   public filterUser: any;
   public amountTransfer: FormGroup;
+  public recipient: any;
 
   constructor(private bankService: BankTypesService, private fb: FormBuilder) { }
 
@@ -30,9 +31,9 @@ export class MakeTransferComponent implements OnInit {
     })
   }
 
-  createForm() {
+  public createForm() {
     this.amountTransfer = this.fb.group({
-      amount: ['', [Validators.required, Validators.minLength(5)]]   
+      amount: ['', [Validators.required, Validators.minLength(5)]]
 
     })
   }
@@ -41,12 +42,9 @@ export class MakeTransferComponent implements OnInit {
     return this.amountTransfer.get('amount').invalid && this.amountTransfer.get('amount').touched
   }
 
-  sendTransfer() {
+  public sendTransfer() {
     if (this.amountTransfer.invalid) {
       this.amountTransfer.markAllAsTouched();
-      console.log('entra');
-      
-      
     } else {
       Swal.fire(
         'Transferencia realizada con éxito',
@@ -55,8 +53,12 @@ export class MakeTransferComponent implements OnInit {
       )
       this.amountTransfer.reset();
     }
+  }
 
-
-
+  public selectRecipient(user){    
+    console.log(user.id);
+    
+    this.recipient = user.id;
+    
   }
 }
