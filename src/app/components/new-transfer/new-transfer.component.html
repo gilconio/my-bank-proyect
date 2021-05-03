@@ -3,7 +3,7 @@
   <form class="row g-3 mt-4" autocomplete="off" [formGroup]="form" (ngSubmit)="save()">
     <div class="col-md-6">
       <label for="inputEmail4" class="form-label">Rut</label>
-      <input type="number" class="form-control" formControlName="rut" [class.is-invalid]="invalidRut">
+      <input type="text" class="form-control" formControlName="rut" [class.is-invalid]="invalidRut">
       <small *ngIf="invalidRut" class="text-danger">
         Ingrese un rut correcto
       </small>
@@ -24,7 +24,7 @@
     </div>
     <div class="col-md-6">
       <label class="form-label">Teléfono</label>
-      <input type="number" class="form-control" formControlName="phone" [class.is-invalid]="invalidPhone">
+      <input type="text" class="form-control" formControlName="phone" [class.is-invalid]="invalidPhone">
       <small *ngIf="invalidPhone" class="text-danger">
         Ingrese un número de teléfono válido
       </small>
@@ -59,7 +59,7 @@
       </small>
     </div>
     <div class="col-md-12 mt-3">
-      <button type="submit" class="btn btn-primary btn-lg btn-block">Crear destinatario</button>
+      <button type="submit" class="btn btn-primary btn-lg btn-block offset-md-4 col-md-4 mt-3">Crear destinatario</button>
     </div>
   </form>
 </div>

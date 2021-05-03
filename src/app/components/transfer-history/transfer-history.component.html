@@ -1,35 +1,23 @@
 <div class="container mt-5 mb-5 animated fadeIn fast">
     <h2 class="text-center">Historial de Transferencias</h2>
-    <table class="table mt-4">
+    <table class="table mt-4" style="width: 100%">
         <thead>
-          <tr>
-            <th scope="col">Nombre de destinatario</th>
-            <th scope="col">Rut</th>
-            <th scope="col">Banco</th>
-            <th scope="col">Tipo de cuenta</th>
-            <th scope="col">Monto</th>
+          <tr class="tr-detalle-history">
+            <th></th>
+            <th>Nombre de destinatario</th>
+            <th>Rut</th>
+            <th>Banco</th>
+            <th>Tipo de cuenta</th>
+            <th>Monto</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
+          <tr class="tr-detalle-history" *ngFor="let item of [0, 0,0,0,0,0,0]; let i = index">
+            <td class="td-detalle"><img class="img-detalle" [src]="'https://i.pravatar.cc/' + 30 + i" ></td>
+            <td>1</td>
             <td>Mark</td>
             <td>Otto</td>
             <td>@mdo</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
             <td>@mdo</td>
           </tr>
         </tbody>

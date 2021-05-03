@@ -67,8 +67,8 @@ export class NewTransferComponent extends UnsubscribeOnDestroy implements OnInit
       this.form.markAllAsTouched();
     } else {
       Swal.fire(
-        'Destinatario guardado con éxito',
-        '',
+        'Destinatario creado',
+        `Se ha creado el destinatario ${this.form.value.name}`,
         'success'
       )
       this.form.reset();

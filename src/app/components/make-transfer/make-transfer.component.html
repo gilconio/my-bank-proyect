@@ -1,26 +1,37 @@
 <div class="container mt-5 animated fadeIn fast">
-    <h2 class="text-center">Transferir</h2>
-    <label class="form-label mt-4">Buscar Destinatario</label>
-    <form class="form-inline">
-        <input spellcheck="false" autocomplete="none" class="form-control mr-sm-2" (input)="handleSearch($event)"
-            placeholder="Buscar">
-        <button class="btn btn-primary  my-2 my-sm-0" type="button">Buscar</button>
-    </form>
-    <label class="form-label mt-4">Seleccione el destinatario a transferir</label>
-    <ul class="list-group col-md-4">
-        <li (click)="selectRecipient(user)" *ngFor="let user of users | search:filterUser"
-            class="list-group-item text-center point" [ngClass]="{'active': recipient=== user.id }">{{user.usuario}}
-        </li>
+  <h2 class="text-center">Transferir</h2>
+  <label class="form-label mt-4">Buscar Destinatario</label>
+  <form class="form-inline">
+    <input spellcheck="false" autocomplete="none" class="form-control mr-sm-2" (input)="handleSearch($event)"
+      placeholder="Buscar">
+    <button class="btn btn-primary  my-2 my-sm-0" type="button">Buscar</button>
+  </form>
+  <label class="form-label mt-4">Seleccione el destinatario a transferir</label>
+  <ul class="list-group col-md-12">
+    <li (click)="selectRecipient(user)" *ngFor="let user of users | search: filterUser; let i = index"
+      class="list-group-item text-center point" [ngClass]="{ active: recipient === user.id }">
+      <table style="width: 100%;">
+        <tr class="tr-detalle">
+          <td class="td-detalle">
+            <img class="img-detalle" [src]="'https://i.pravatar.cc/' + 30 + i" [alt]="user.usuario">
+          </td>
+          <td style="text-align: left;">{{ user.usuario }}</td>
+          <td style="text-align: left;">{{ user.usuario }}@hola.com</td>
+          <td style="text-align: left;">Banco Falabella</td>
+          <td style="text-align: left;">Corriente</td>
+        </tr>
+      </table>
+    </li>
 
 
-    </ul>
-    <form [formGroup]="amountTransfer" (ngSubmit)="sendTransfer()">
-        <label class="form-label">Monto</label>
-        <input type="number" class="form-control col-md-3" formControlName="amount" [class.is-invalid]="invalidAmount">
-        <small *ngIf="invalidAmount" class="text-danger">
-            El campo es requerido
-        </small>
-        <div class="col-md-12"></div>
-        <button type="submit" class="btn btn-primary mt-3 mb-5">Transferir</button>
-    </form>
+  </ul>
+  <form [formGroup]="amountTransfer" (ngSubmit)="sendTransfer()">
+    <label class="form-label">Monto</label>
+    <input type="number" class="form-control col-md-3" formControlName="amount" [class.is-invalid]="invalidAmount">
+    <small *ngIf="invalidAmount" class="text-danger">
+      El campo es requerido
+    </small>
+    <div class="col-md-12"></div>
+    <button type="submit" class="btn btn-primary mt-3 mb-5">Transferir</button>
+  </form>
 </div>

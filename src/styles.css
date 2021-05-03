@@ -36,4 +36,36 @@ body {
   .fadeIn {
     animation-name: fadeIn;
   }
-  
+.tr-detalle{
+  display: grid; grid-template-columns: 50px repeat(4, 1fr); width: 100%;
+
+}
+
+tbody .tr-detalle{
+  align-items: center;
+}
+
+.td-detalle{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0!important;
+}
+
+.img-detalle{
+  min-width: 100%;
+  min-height: 100%;
+  width: 30px;
+  height: 30px;
+}
+
+.tr-detalle-history{
+  display: grid; grid-template-columns: 50px repeat(5, 1fr); width: 100%;
+
+}
+
+tbody .tr-detalle-history{
+  align-items: center;
+}

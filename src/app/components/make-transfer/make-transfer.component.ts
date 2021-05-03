@@ -13,6 +13,7 @@ export class MakeTransferComponent implements OnInit {
   public filterUser: any;
   public amountTransfer: FormGroup;
   public recipient: any;
+  public userName: any;
 
   constructor(private bankService: BankTypesService, private fb: FormBuilder) { }
 
@@ -48,17 +49,15 @@ export class MakeTransferComponent implements OnInit {
     } else {
       Swal.fire(
         'Transferencia realizada con éxito',
-        '',
+        `Tu transferencia de ${this.amountTransfer.value.amount} a ${this.userName} se ha realizado con éxito`,
         'success'
       )
       this.amountTransfer.reset();
     }
   }
 
-  public selectRecipient(user){    
-    console.log(user.id);
-    
+  public selectRecipient(user){        
     this.recipient = user.id;
-    
+    this.userName = user.usuario;
   }
 }
