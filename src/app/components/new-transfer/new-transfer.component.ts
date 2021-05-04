@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BankTypesService } from 'src/app/services/bank-types.service';
 import { UnsubscribeOnDestroy } from 'src/app/utils/unsubscribe-on-destroy';
 import Swal from 'sweetalert2';
+import { validateRut } from 'src/app/utils/rut';
 @Component({
   selector: 'app-new-transfer',
   templateUrl: './new-transfer.component.html',
@@ -90,5 +91,9 @@ export class NewTransferComponent extends UnsubscribeOnDestroy implements OnInit
       this.accountTypes = data;
     })
   }
+
+   validateIsRut(event: KeyboardEvent) {
+    return validateRut(event.key);
+  } 
 
 }

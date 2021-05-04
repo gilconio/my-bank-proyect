@@ -3,7 +3,7 @@
   <form class="row g-3 mt-4" autocomplete="off" [formGroup]="form" (ngSubmit)="save()">
     <div class="col-md-6">
       <label for="inputEmail4" class="form-label">Rut</label>
-      <input type="text" class="form-control" formControlName="rut" [class.is-invalid]="invalidRut">
+      <input type="text" class="form-control" formControlName="rut" [class.is-invalid]="invalidRut" (keypress)="validateIsRut($event)">
       <small *ngIf="invalidRut" class="text-danger">
         Ingrese un rut correcto
       </small>
