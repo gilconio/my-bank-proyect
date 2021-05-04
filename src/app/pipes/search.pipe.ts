@@ -5,9 +5,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SearchPipe implements PipeTransform {
 
-  transform(list: any[ ], text: string): any[] {
+  transform(list: any[ ], text: string): any[] {    
     if(!text) return list
-    return list.filter(user => user.usuario.toUpperCase().includes(text.toUpperCase()) )
+    return list.filter(user => user.nombre.toUpperCase().includes(text.toUpperCase()) )
   }
 
 }

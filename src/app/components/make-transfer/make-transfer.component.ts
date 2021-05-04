@@ -24,7 +24,7 @@ export class MakeTransferComponent implements OnInit {
   }
 
   public handleSearch(text) {
-    this.filterUser = text.target.value;
+    this.filterUser = text.target.value;    
   }
 
   private getCustomers() {
