@@ -68,7 +68,7 @@ export class NewTransferComponent extends UnsubscribeOnDestroy implements OnInit
     } else {
       Swal.fire(
         'Destinatario creado',
-        `Se ha creado el destinatario ${this.form.value.name}`,
+        `Se ha creado el destinatario ${this.form.value.nombre}`,
         'success'
       )
       this.bankTypesService.addCustomers(this.form.value).subscribe();
