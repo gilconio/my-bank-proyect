@@ -3,28 +3,28 @@
   <form class="row g-3 mt-4" autocomplete="off" [formGroup]="form" (ngSubmit)="save()">
     <div class="col-md-6">
       <label for="inputEmail4" class="form-label">Rut</label>
-      <input type="text" class="form-control" formControlName="rut" [class.is-invalid]="invalidRut" (keypress)="validateIsRut($event)">
+      <input type="text" class="form-control" formControlName="rut" [class.is-invalid]="invalidRut" placeholder="Ingrese rut (26936907-8)">
       <small *ngIf="invalidRut" class="text-danger">
         Ingrese un rut correcto
       </small>
     </div>
     <div class="col-md-6">
       <label for="inputPassword4" class="form-label">Nombre</label>
-      <input type="text" class="form-control" formControlName="nombre" [class.is-invalid]="invalidName">
+      <input type="text" class="form-control" formControlName="nombre" [class.is-invalid]="invalidName" placeholder="Ingrese el nombre">
       <small *ngIf="invalidName" class="text-danger">
         Ingrese 5 letras
       </small>
     </div>
     <div class="col-md-6">
       <label class="form-label">Correo</label>
-      <input type="email" class="form-control" formControlName="correo" [class.is-invalid]="invalidEmail">
+      <input type="email" class="form-control" formControlName="correo" [class.is-invalid]="invalidEmail" placeholder="Ingrese correo">
       <small *ngIf="invalidEmail" class="text-danger">
         Ingrese un correo válido
       </small>
     </div>
     <div class="col-md-6">
       <label class="form-label">Teléfono</label>
-      <input type="text" class="form-control" formControlName="telefono" [class.is-invalid]="invalidPhone">
+      <input type="text" class="form-control" formControlName="telefono" [class.is-invalid]="invalidPhone" placeholder="Ingrese su número de teléfono">
       <small *ngIf="invalidPhone" class="text-danger">
         Ingrese un número de teléfono válido
       </small>
@@ -53,7 +53,7 @@
     <div class="col-md-6">
       <label for="inputCity" class="form-label">Número de cuenta</label>
       <input type="number" class="form-control" formControlName="ncuenta"
-        [class.is-invalid]="invalidAccountNumber">
+        [class.is-invalid]="invalidAccountNumber" placeholder="Ingrese su número de cuenta">
       <small *ngIf="invalidAccountNumber" class="text-danger">
         Ingrese un número de cuenta
       </small>

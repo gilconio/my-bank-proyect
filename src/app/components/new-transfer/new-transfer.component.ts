@@ -28,8 +28,8 @@ export class NewTransferComponent extends UnsubscribeOnDestroy implements OnInit
     this.form = this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(5)]],
       correo: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$')]],
-      telefono: ['', [Validators.required, Validators.minLength(3)]],
-      rut: ['', [Validators.required, Validators.minLength(5)]],
+      telefono: ['', [Validators.required, Validators.minLength(5)]],
+      rut: ['', [Validators.required, Validators.minLength(5), Validators.pattern(/^\d{6,8}[-][0-9kK]{1}$/)]],
       ncuenta: ['', Validators.required],
       banco: ['', Validators.required],
       tipocuenta: ['', Validators.required]
@@ -65,6 +65,8 @@ export class NewTransferComponent extends UnsubscribeOnDestroy implements OnInit
 
   public save() {
     if (this.form.invalid) {
+      console.log(this.form);
+      
       this.form.markAllAsTouched();
     } else {
       Swal.fire(
@@ -91,9 +93,5 @@ export class NewTransferComponent extends UnsubscribeOnDestroy implements OnInit
       this.accountTypes = data;
     })
   }
-
-   validateIsRut(event: KeyboardEvent) {
-    return validateRut(event.key);
-  } 
 
 }
