@@ -48,12 +48,20 @@ export class MakeTransferComponent implements OnInit {
     if (this.amountTransfer.invalid) {
       this.amountTransfer.markAllAsTouched();
     } else {
-      Swal.fire(
-        'Transferencia realizada con éxito',
-        `Tu transferencia de ${this.amountTransfer.value.amount} a ${this.userName} se ha realizado con éxito`,
-        'success'
-      )
-      this.amountTransfer.reset();
+      Swal.fire({
+        title: `Seguro que quieres transferir ${this.amountTransfer.value.amount} a ${this.userName}? `,
+        showDenyButton: true,
+        confirmButtonText: `Transferir`,
+        denyButtonText: `Cancelar`,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire('Transferencia exitosa', '', 'success')
+          this.transfer();
+          this.amountTransfer.reset();
+        } else if (result.isDenied) {
+          Swal.fire('Transferencia cancelada', '', 'info')
+        }
+      })
     }
   }
 
@@ -63,7 +71,7 @@ export class MakeTransferComponent implements OnInit {
     this.userName = user.nombre;
   }
 
-  public transfer() {
+  private transfer() {
     if (this.amountTransfer.value.amount) {
       const { nombre, banco, rut, tipocuenta } = this.customer;
       let customer = {
