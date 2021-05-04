@@ -24,7 +24,7 @@ export class MakeTransferComponent implements OnInit {
   }
 
   public handleSearch(text) {
-    this.filterUser = text.target.value;    
+    this.filterUser = text.target.value;
   }
 
   private getCustomers() {
@@ -60,14 +60,12 @@ export class MakeTransferComponent implements OnInit {
   public selectRecipient(user) {
     this.customer = user
     this.recipient = user._id;
-    console.log(this.recipient );
-    
     this.userName = user.nombre;
   }
 
   public transfer() {
-    const { nombre, banco, rut, tipocuenta } = this.customer;
-    if (this.amountTransfer.value.amount && nombre) {
+    if (this.amountTransfer.value.amount) {
+      const { nombre, banco, rut, tipocuenta } = this.customer;
       let customer = {
         nombre,
         rut,
