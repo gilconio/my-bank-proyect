@@ -24,13 +24,16 @@ export class BankTypesService extends BaseService {
     ])
   }
 
-  public getUsers() {
-    return of([
-      { usuario: 'pedro', id: 1 },
-      { usuario: 'juan', id: 2 },
-      { usuario: 'matias', id: 3 },
-      { usuario: 'luis', id: 4 },
-      { usuario: 'jose', id: 5 },
-    ])
+  public getCustomers(): Observable<any> {
+    return this.http.get<any>(this.BANK.CUSTOMER.GET_CUSTOMERS); 
   }
+
+  public getCustomerTransfers(): Observable<any> {
+    return this.http.get<any>(this.BANK.CUSTOMER.GET_HISTORY); 
+  }
+
+  public addCustomers(customer): Observable<any> {
+    return this.http.post<any>(this.BANK.CUSTOMER.POST_CUSTOMER, customer);
+  }
+
 }

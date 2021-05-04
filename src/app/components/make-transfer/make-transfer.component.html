@@ -6,19 +6,20 @@
       placeholder="Buscar">
     <button class="btn btn-primary  my-2 my-sm-0" type="button">Buscar</button>
   </form>
-  <label class="form-label mt-4">Seleccione el destinatario a transferir</label>
-  <ul class="list-group col-md-12">
+  <label *ngIf="users.length" class="form-label mt-4">Seleccione el destinatario a transferir</label>
+  <label *ngIf="!users.length" class="form-label mt-4 d-flex justify-content-center">No tienes destinatarios agregados</label>
+  <ul class="list-group col-12">
     <li (click)="selectRecipient(user)" *ngFor="let user of users | search: filterUser; let i = index"
-      class="list-group-item text-center point" [ngClass]="{ active: recipient === user.id }">
+      class="list-group-item text-center point" [ngClass]="{ active: recipient === user._id }">
       <table style="width: 100%;">
         <tr class="tr-detalle">
           <td class="td-detalle">
             <img class="img-detalle" [src]="'https://i.pravatar.cc/' + 30 + i" [alt]="user.usuario">
           </td>
-          <td style="text-align: left;">{{ user.usuario }}</td>
-          <td style="text-align: left;">{{ user.usuario }}@hola.com</td>
-          <td style="text-align: left;">Banco Falabella</td>
-          <td style="text-align: left;">Corriente</td>
+          <td style="text-align: left;">{{ user.nombre }}</td>
+          <td style="text-align: left;">{{ user.correo }}</td>
+          <td style="text-align: left;">{{user.banco}}</td>
+          <td style="text-align: left;">{{user.tipocuenta}}</td>
         </tr>
       </table>
     </li>

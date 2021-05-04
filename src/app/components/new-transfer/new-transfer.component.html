@@ -10,28 +10,28 @@
     </div>
     <div class="col-md-6">
       <label for="inputPassword4" class="form-label">Nombre</label>
-      <input type="text" class="form-control" formControlName="name" [class.is-invalid]="invalidName">
+      <input type="text" class="form-control" formControlName="nombre" [class.is-invalid]="invalidName">
       <small *ngIf="invalidName" class="text-danger">
         Ingrese 5 letras
       </small>
     </div>
     <div class="col-md-6">
       <label class="form-label">Correo</label>
-      <input type="email" class="form-control" formControlName="email" [class.is-invalid]="invalidEmail">
+      <input type="email" class="form-control" formControlName="correo" [class.is-invalid]="invalidEmail">
       <small *ngIf="invalidEmail" class="text-danger">
         Ingrese un correo válido
       </small>
     </div>
     <div class="col-md-6">
       <label class="form-label">Teléfono</label>
-      <input type="text" class="form-control" formControlName="phone" [class.is-invalid]="invalidPhone">
+      <input type="text" class="form-control" formControlName="telefono" [class.is-invalid]="invalidPhone">
       <small *ngIf="invalidPhone" class="text-danger">
         Ingrese un número de teléfono válido
       </small>
     </div>
     <div class="form-group col-md-6">
       <label>Banco</label>
-      <select class="form-control" formControlName="bankType" [class.is-invalid]="invalidBank">
+      <select class="form-control" formControlName="banco" [class.is-invalid]="invalidBank">
         <option value="" disabled selected hidden>Seleccione su banco</option>
         <option *ngFor="let bank of banks">{{bank.name}}</option>
       </select>
@@ -41,7 +41,7 @@
     </div>
     <div class="form-group col-md-6">
       <label for="inputState">Tipo de cuenta</label>
-      <select id="inputState" class="form-control" formControlName="accountType"
+      <select id="inputState" class="form-control" formControlName="tipocuenta"
         [class.is-invalid]="invalidAccountType">
         <option value="" disabled selected hidden>Seleccione su tipo de cuenta</option>
         <option *ngFor="let accountType of accountTypes">{{accountType.cuenta}}</option>
@@ -52,7 +52,7 @@
     </div>
     <div class="col-md-6">
       <label for="inputCity" class="form-label">Número de cuenta</label>
-      <input type="number" class="form-control" formControlName="accountNumber"
+      <input type="number" class="form-control" formControlName="ncuenta"
         [class.is-invalid]="invalidAccountNumber">
       <small *ngIf="invalidAccountNumber" class="text-danger">
         Ingrese un número de cuenta

@@ -18,7 +18,7 @@ export class MakeTransferComponent implements OnInit {
   constructor(private bankService: BankTypesService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.getUsers();
+    this.getCustomers();
     this.createForm();
   }
 
@@ -26,9 +26,11 @@ export class MakeTransferComponent implements OnInit {
     this.filterUser = text.target.value;
   }
 
-  private getUsers() {
-    this.bankService.getUsers().subscribe(data => {
-      this.users = data;
+  private getCustomers() {
+    this.bankService.getCustomers().subscribe(data => {      
+      this.users = data.payload;
+      console.log(this.users);
+      
     })
   }
 
@@ -56,8 +58,8 @@ export class MakeTransferComponent implements OnInit {
     }
   }
 
-  public selectRecipient(user){        
-    this.recipient = user.id;
+  public selectRecipient(user) {
+    this.recipient = user._id;
     this.userName = user.usuario;
   }
 }

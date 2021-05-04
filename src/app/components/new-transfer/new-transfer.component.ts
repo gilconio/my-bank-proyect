@@ -25,41 +25,41 @@ export class NewTransferComponent extends UnsubscribeOnDestroy implements OnInit
 
   public createForm() {
     this.form = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(5)]],
-      email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$')]],
-      phone: ['', [Validators.required, Validators.minLength(3)]],
+      nombre: ['', [Validators.required, Validators.minLength(5)]],
+      correo: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$')]],
+      telefono: ['', [Validators.required, Validators.minLength(3)]],
       rut: ['', [Validators.required, Validators.minLength(5)]],
-      accountNumber: ['', Validators.required],
-      bankType: ['', Validators.required],
-      accountType: ['', Validators.required]
+      ncuenta: ['', Validators.required],
+      banco: ['', Validators.required],
+      tipocuenta: ['', Validators.required]
 
     })
   }
 
   get invalidName() {
-    return this.form.get('name').invalid && this.form.get('name').touched
+    return this.form.get('nombre').invalid && this.form.get('nombre').touched
   }
   get invalidRut() {
     return this.form.get('rut').invalid && this.form.get('rut').touched
   }
 
   get invalidEmail() {
-    return this.form.get('email').invalid && this.form.get('email').touched
+    return this.form.get('correo').invalid && this.form.get('correo').touched
   }
 
   get invalidPhone() {
-    return this.form.get('phone').invalid && this.form.get('phone').touched
+    return this.form.get('telefono').invalid && this.form.get('telefono').touched
   }
 
   get invalidAccountNumber() {
-    return this.form.get('accountNumber').invalid && this.form.get('accountNumber').touched
+    return this.form.get('ncuenta').invalid && this.form.get('ncuenta').touched
   }
   get invalidBank() {
-    return this.form.get('bankType').invalid && this.form.get('bankType').touched
+    return this.form.get('banco').invalid && this.form.get('banco').touched
   }
 
   get invalidAccountType() {
-    return this.form.get('accountType').invalid && this.form.get('accountType').touched
+    return this.form.get('tipocuenta').invalid && this.form.get('tipocuenta').touched
   }
 
   public save() {
@@ -71,6 +71,7 @@ export class NewTransferComponent extends UnsubscribeOnDestroy implements OnInit
         `Se ha creado el destinatario ${this.form.value.name}`,
         'success'
       )
+      this.bankTypesService.addCustomers(this.form.value).subscribe();
       this.form.reset();
 
     }

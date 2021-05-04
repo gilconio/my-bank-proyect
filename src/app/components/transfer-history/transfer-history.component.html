@@ -12,13 +12,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="tr-detalle-history" *ngFor="let item of [0, 0,0,0,0,0,0]; let i = index">
+          <tr class="tr-detalle-history" *ngFor="let user of userTransfer; let i = index">
             <td class="td-detalle"><img class="img-detalle" [src]="'https://i.pravatar.cc/' + 30 + i" ></td>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
+            <td >{{user.nombre}}</td>
+            <td>{{user.rut}}</td>
+            <td>{{user.banco}}</td>
+            <td>{{user.tipocuenta}}</td>
+            <td>{{user.monto}}</td>
+            
           </tr>
         </tbody>
       </table>
