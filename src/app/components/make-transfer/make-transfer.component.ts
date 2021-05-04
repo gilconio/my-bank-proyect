@@ -14,6 +14,7 @@ export class MakeTransferComponent implements OnInit {
   public amountTransfer: FormGroup;
   public recipient: any;
   public userName: any;
+  public customer: any;
 
   constructor(private bankService: BankTypesService, private fb: FormBuilder) { }
 
@@ -27,10 +28,8 @@ export class MakeTransferComponent implements OnInit {
   }
 
   private getCustomers() {
-    this.bankService.getCustomers().subscribe(data => {      
+    this.bankService.getCustomers().subscribe(data => {
       this.users = data.payload;
-      console.log(this.users);
-      
     })
   }
 
@@ -59,7 +58,25 @@ export class MakeTransferComponent implements OnInit {
   }
 
   public selectRecipient(user) {
+    this.customer = user
     this.recipient = user._id;
-    this.userName = user.usuario;
+    this.userName = user.nombre;
+  }
+
+  public transfer() {
+    const { nombre, banco, rut, tipocuenta } = this.customer;
+    if (this.amountTransfer.value.amount && nombre) {
+      let customer = {
+        nombre,
+        rut,
+        banco,
+        tipocuenta,
+        monto: this.amountTransfer.value.amount
+      }
+      this.bankService.transfer(customer).subscribe();
+    }
+
   }
 }
+
+

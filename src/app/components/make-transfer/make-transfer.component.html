@@ -6,8 +6,8 @@
       placeholder="Buscar">
     <button class="btn btn-primary  my-2 my-sm-0" type="button">Buscar</button>
   </form>
-  <label *ngIf="users.length" class="form-label mt-4">Seleccione el destinatario a transferir</label>
-  <label *ngIf="!users.length" class="form-label mt-4 d-flex justify-content-center">No tienes destinatarios agregados</label>
+  <label *ngIf="users" class="form-label mt-4">Seleccione el destinatario a transferir</label>
+  <label *ngIf="!users" class="form-label mt-4 d-flex justify-content-center">No tienes destinatarios agregados</label>
   <ul class="list-group col-12">
     <li (click)="selectRecipient(user)" *ngFor="let user of users | search: filterUser; let i = index"
       class="list-group-item text-center point" [ngClass]="{ active: recipient === user._id }">
@@ -32,9 +32,10 @@
     <small *ngIf="invalidAmount" class="text-danger">
       El campo es requerido
     </small>
-    
+
     <div class="col-md-12 mt-3">
-      <button type="submit" class="btn btn-primary btn-lg btn-block offset-md-4 col-md-4 mt-3">Continuar</button>
+      <button type="submit" class="btn btn-primary btn-lg btn-block offset-md-4 col-md-4 mt-3"
+        [disabled]="amountTransfer.invalid" (click)="transfer()">Continuar</button>
     </div>
   </form>
 </div>

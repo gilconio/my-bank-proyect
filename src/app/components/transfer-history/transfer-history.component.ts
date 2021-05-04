@@ -20,9 +20,7 @@ export class TransferHistoryComponent extends UnsubscribeOnDestroy implements On
 
   private getCustomers() {
     this.bankService.getCustomerTransfers().subscribe(data => {      
-      this.userTransfer = data.payload;
-      console.log(this.userTransfer);
-      
+      this.userTransfer = data.payload;      
     })
   }
 

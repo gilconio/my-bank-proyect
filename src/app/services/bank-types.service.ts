@@ -36,4 +36,8 @@ export class BankTypesService extends BaseService {
     return this.http.post<any>(this.BANK.CUSTOMER.POST_CUSTOMER, customer);
   }
 
+  public transfer(customer): Observable<any> {
+    return this.http.post<any>(this.BANK.CUSTOMER.POST_TRANSFER, customer);
+  }
+
 }
