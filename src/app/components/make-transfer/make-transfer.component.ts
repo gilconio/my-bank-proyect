@@ -60,6 +60,8 @@ export class MakeTransferComponent implements OnInit {
   public selectRecipient(user) {
     this.customer = user
     this.recipient = user._id;
+    console.log(this.recipient );
+    
     this.userName = user.nombre;
   }
 
